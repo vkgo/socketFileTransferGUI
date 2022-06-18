@@ -2,7 +2,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-LIBS += -lws2_32
+LIBS += -lwsock32
+
 
 CONFIG += c++11
 
