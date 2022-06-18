@@ -2,6 +2,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+LIBS += -lws2_32
+
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use

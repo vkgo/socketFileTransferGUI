@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -43,7 +43,7 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>240</x>
       <y>240</y>
       <width>80</width>
       <height>20</height>
