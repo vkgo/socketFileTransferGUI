@@ -100,6 +100,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+    ui->textEdit->append("<font color=\"#000000\">*****发送文件*****</font> ");
     if (server_work_signal == true)
     {
         ui->textEdit->append("<font color=\"#813732\">---->已经打开文件服务器，请勿再次发送，等待文件传输完毕！</font> ");
@@ -196,6 +197,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
+    ui->textEdit->append("<font color=\"#000000\">*****接收文件*****</font> ");
     // 初始化WSA
     WORD sockVersion = MAKEWORD(2, 2);
     WSADATA wsaData;
@@ -213,8 +215,12 @@ void MainWindow::on_pushButton_2_clicked()
     SOCKET client_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (client_socket == INVALID_SOCKET)
     {
-        perror("socket error !\n");
+        //如果创建的socket无效，则结束程序
+        ui->textEdit->append("<font color=\"#813732\">---->创建socket失败！</font> ");
         return;
+    }else
+    {
+        ui->textEdit->append("<font color=\"#000000\">---->创建socket成功！</font> ");
     }
 
     // 创建服务器地址
@@ -226,8 +232,11 @@ void MainWindow::on_pushButton_2_clicked()
     // 连接，奖client_socket传给server_addr
     if (WSAAPI::connect(client_socket, (LPSOCKADDR)&server_addr, sizeof(server_addr)) == SOCKET_ERROR)
     {
-        perror("connect error !\n");
+        ui->textEdit->append("<font color=\"#813732\">---->创建connect失败！</font> ");
         return;
+    }else
+    {
+        ui->textEdit->append("<font color=\"#000000\">---->创建connect成功！</font> ");
     }
 
 
